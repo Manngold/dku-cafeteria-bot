@@ -4,14 +4,21 @@
     "description": "Using Node.js build DKU cafeteria menu notification",
     "main": "index.js",
     "scripts": {
-        "start": "node app.js",
+        "start": "nodemon --exec babel-node init.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "manngold",
     "license": "ISC",
     "dependencies": {
+        "@babel/preset-env": "^7.6.3",
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
+        "helmet": "^3.21.2",
         "puppeteer": "^1.20.0"
+    },
+    "devDependencies": {
+        "nodemon": "^1.19.4",
+        "@babel/core": "^7.6.4",
+        "@babel/node": "^7.6.3"
     }
 }
