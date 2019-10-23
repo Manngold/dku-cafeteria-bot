@@ -8,5 +8,7 @@ const app = express();
 app.use(helmet());
 // setInterval(getDate, 3000);
 app.get("/", (req, res) => scrapper());
+getDate();
+console.log(menu);
 
 export default app;

@@ -5,14 +5,14 @@ export const textEdit = data => {
     menu.profCafeteria = trimmer(profCafeteria);
     menu.studentCafeteria = trimmer(studentCafeteria);
     menu.dormCafeteria = trimmer(dormCafeteria);
-    console.log(menu);
 };
 
 const trimmer = data => {
     const brTrimedData = data.replace(/<br>/gi, "\n");
-    const braketTrimedData = brTrimedData.replace(/&lt;/gi, "<");
-    const andTrimedData = braketTrimedData.replace(/&amp;/gi, "&");
-    const trimedData = andTrimedData.replace(/&gt;/gi, ">");
+    const leftBraketTrimedData = brTrimedData.replace(/&lt;/gi, "<");
+    const rightBraketTrimedData = leftBraketTrimedData.replace(/&gt;/gi, ">");
+    const andTrimedData = rightBraketTrimedData.replace(/&amp;/gi, "&");
+    const trimedData = andTrimedData.replace(/\\/gi, "₩ ");
     return originDelete(trimedData);
 };
 
@@ -43,6 +43,5 @@ const originDelete = data => {
             } else fixedData += data[i];
         }
     }
-    console.log(fixedData);
     return fixedData;
 };
