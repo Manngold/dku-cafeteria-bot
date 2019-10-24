@@ -43,5 +43,6 @@ const originDelete = data => {
             } else fixedData += data[i];
         }
     }
+    console.log(menu);
     return fixedData;
 };

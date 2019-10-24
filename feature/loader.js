@@ -1,11 +1,25 @@
+import puppeteer from "puppeteer";
+import { scrapper } from "./scrapper";
 import { menu } from "../db";
 
-let ts = Date.now();
-let dateObj = new Date(ts);
+const dateScrapper = async () => {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.setViewport({ width: 1280, height: 720 });
+    await page.goto("https://portal.dankook.ac.kr/web/portal");
 
-export const getDate = () => {
-    const month = dateObj.getMonth();
-    const date = dateObj.getDate();
-    const fullDate = `${month}${date}`;
-    menu.date = fullDate;
+    const date = await page.$eval(".date", e => e.innerText);
+    console.log(date);
+    await browser.close();
+    return date;
+};
+
+export const isUpdated = () => {
+    if (menu.date != dateScrapper()) {
+        const newDate = dateScrapper();
+        menu.date = newDate;
+        scrapper();
+    } else {
+        console.log("Date info is already up-to-date");
+    }
 };

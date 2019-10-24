@@ -1,14 +1,10 @@
 import express from "express";
 import helmet from "helmet";
-import { scrapper } from "./feature/scrapper";
-import { getDate } from "./feature/loader";
-import { menu } from "./db";
+import { isUpdated } from "./feature/loader";
 const app = express();
 
 app.use(helmet());
-// setInterval(getDate, 3000);
-app.get("/", (req, res) => scrapper());
-getDate();
-console.log(menu);
+
+setInterval(isUpdated, 5000);
 
 export default app;
