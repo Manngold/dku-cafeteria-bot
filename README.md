@@ -9,6 +9,6 @@
     -   [x] student cafeteria
     -   [x] dormitory cafeteria
 -   [x] Trimming Crawling Data
--   [ ] Automatic Updater
+-   [x] Automatic Updater
 -   [ ] Authenticate Chat Bot API
 -   [ ] Receive/Send Message Feature
