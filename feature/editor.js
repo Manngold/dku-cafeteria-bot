@@ -43,6 +43,9 @@ const originDelete = data => {
             } else fixedData += data[i];
         }
     }
+    if (fixedData.length == 1) {
+        fixedData = "학교 홈페이지에 메뉴가 등록되어 있지 않습니다.";
+    }
     console.log(menu);
     return fixedData;
 };

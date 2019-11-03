@@ -9,7 +9,6 @@ const dateScrapper = async () => {
     await page.goto("https://portal.dankook.ac.kr/web/portal");
 
     const date = await page.$eval(".date", e => e.innerText);
-    console.log(date);
     await browser.close();
     return date;
 };
