@@ -4,7 +4,7 @@
     "description": "Using Node.js build DKU cafeteria menu notification",
     "main": "index.js",
     "scripts": {
-        "start": "babel-node init.js",
+        "start": "nodemon --exec babel-node init.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "manngold",
