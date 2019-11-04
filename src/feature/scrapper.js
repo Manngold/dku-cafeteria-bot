@@ -6,6 +6,7 @@ export const scrapper = async url => {
         args: ["--no-sandbox", "--disable-setuid-sandbox"]
     });
     const page = await browser.newPage();
+
     await page.setViewport({ width: 1280, height: 720 });
     await page.goto("https://portal.dankook.ac.kr/web/portal");
 
