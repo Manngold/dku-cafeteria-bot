@@ -4,24 +4,29 @@
     "description": "Using Node.js build DKU cafeteria menu notification",
     "main": "index.js",
     "scripts": {
-        "start": "babel-node init.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "build": "npm run clean && npm run build-babel",
+        "start": "npm run build && node ./build/init.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "clean": "rm -rf build & mkdir build",
+        "build-babel": "babel -d ./build ./src -s"
     },
     "author": "manngold",
     "license": "ISC",
     "dependencies": {
+        "@babel/core": "^7.6.4",
+        "@babel/node": "^7.6.3",
         "@babel/preset-env": "^7.6.3",
-        "babel-cli": "^6.26.0",
+        "@babel/runtime": "^7.6.3",
         "body-parser": "^1.19.0",
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "helmet": "^3.21.2",
         "morgan": "^1.9.1",
-        "puppeteer": "^1.20.0",
-        "@babel/core": "^7.6.4",
-        "@babel/node": "^7.6.3"
+        "puppeteer": "^1.20.0"
     },
     "devDependencies": {
+        "@babel/cli": "^7.6.4",
+        "@babel/plugin-transform-runtime": "^7.6.2",
         "nodemon": "^1.19.4"
     }
 }
