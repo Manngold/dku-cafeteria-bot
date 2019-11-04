@@ -1,5 +1,9 @@
+import { menu } from "./updater";
+
 export const textEdit = data => {
-    return trimmer(data);
+    menu.student = trimmer(data.student);
+    menu.professor = trimmer(data.professor);
+    menu.dormitory = trimmer(data.dormitory);
 };
 
 const trimmer = data => {

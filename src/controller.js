@@ -1,8 +1,7 @@
-import { scrapper } from "./feature/scrapper";
+import { menu } from "./feature/updater";
 
 export const student = async (req, res) => {
-    const { url } = req;
-    const text = await scrapper(url);
+    const text = menu.student;
     const responseBody = {
         version: "2.0",
         template: {
@@ -19,8 +18,7 @@ export const student = async (req, res) => {
 };
 
 export const professor = async (req, res) => {
-    const { url } = req;
-    const text = await scrapper(url);
+    const text = menu.professor;
     const responseBody = {
         version: "2.0",
         template: {
@@ -37,8 +35,7 @@ export const professor = async (req, res) => {
 };
 
 export const dormitory = async (req, res) => {
-    const { url } = req;
-    const text = await scrapper(url);
+    const text = menu.dormitory;
     const responseBody = {
         version: "2.0",
         template: {

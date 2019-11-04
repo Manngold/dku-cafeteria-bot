@@ -1,7 +1,7 @@
 import puppeteer from "puppeteer";
 import { textEdit } from "./editor";
 
-export const scrapper = async url => {
+export const scrapper = async () => {
     const browser = await puppeteer.launch({
         args: ["--no-sandbox", "--disable-setuid-sandbox"]
     });
@@ -10,18 +10,12 @@ export const scrapper = async url => {
     await page.setViewport({ width: 1280, height: 720 });
     await page.goto("https://portal.dankook.ac.kr/web/portal");
 
-    let data = "";
+    const student = await page.$eval("#mCSB_5_container", e => e.innerHTML);
+    const professor = await page.$eval("#mCSB_4_container", e => e.innerHTML);
+    const dormitory = await page.$eval("#mCSB_6_container", e => e.innerHTML);
 
-    if (url == "/student") {
-        data = await page.$eval("#mCSB_5_container", e => e.innerHTML);
-    } else if (url == "/professor") {
-        data = await page.$eval("#mCSB_4_container", e => e.innerHTML);
-    } else if (url == "/dormitory") {
-        data = await page.$eval("#mCSB_6_container", e => e.innerHTML);
-    } else {
-        data = "식당 정보가 존재하지 않습니다.";
-    }
+    const cafeteria = { student, professor, dormitory };
 
     await browser.close();
-    return textEdit(data);
+    return textEdit(cafeteria);
 };

@@ -3,6 +3,7 @@ import helmet from "helmet";
 import bodyParser from "body-parser";
 import morgan from "morgan";
 import apiRouter from "./router";
+import { caffeine } from "./feature/updater";
 
 const app = express();
 
@@ -15,5 +16,7 @@ app.use(
     })
 );
 app.use("/api", apiRouter);
+
+setInterval(caffeine(), 600000);
 
 export default app;
