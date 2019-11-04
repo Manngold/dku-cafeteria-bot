@@ -10,5 +10,5 @@
     -   [x] dormitory cafeteria
 -   [x] Trimming Crawling Data
 -   [x] Automatic Updater
--   [ ] Authenticate Chat Bot API
--   [ ] Receive/Send Message Feature
+-   [x] Authenticate Chat Bot API
+-   [x] Receive/Send Message Feature
