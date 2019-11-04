@@ -23,7 +23,7 @@ const dateUpdater = async () => {
 
 export const caffeine = async () => {
     const newDate = await dateUpdater();
-    if (menu.date != newDate) {
+    if (menu.date !== newDate) {
         menu.date = newDate;
         await scrapper();
     } else {
