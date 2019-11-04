@@ -1,15 +1,15 @@
-import { menu } from "./db";
+import { scrapper } from "./feature/scrapper";
 
-const { studentCafeteria, profCafeteria, dormCafeteria } = menu;
-
-export const student = (req, res) => {
+export const student = async (req, res) => {
+    const { url } = req;
+    const text = await scrapper(url);
     const responseBody = {
         version: "2.0",
         template: {
             outputs: [
                 {
                     simpleText: {
-                        text: studentCafeteria
+                        text
                     }
                 }
             ]
@@ -18,14 +18,16 @@ export const student = (req, res) => {
     res.status(200).send(responseBody);
 };
 
-export const professor = (req, res) => {
+export const professor = async (req, res) => {
+    const { url } = req;
+    const text = await scrapper(url);
     const responseBody = {
         version: "2.0",
         template: {
             outputs: [
                 {
                     simpleText: {
-                        text: profCafeteria
+                        text
                     }
                 }
             ]
@@ -34,14 +36,16 @@ export const professor = (req, res) => {
     res.status(200).send(responseBody);
 };
 
-export const dormitory = (req, res) => {
+export const dormitory = async (req, res) => {
+    const { url } = req;
+    const text = await scrapper(url);
     const responseBody = {
         version: "2.0",
         template: {
             outputs: [
                 {
                     simpleText: {
-                        text: dormCafeteria
+                        text
                     }
                 }
             ]

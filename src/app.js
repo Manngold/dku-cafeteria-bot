@@ -3,7 +3,6 @@ import helmet from "helmet";
 import bodyParser from "body-parser";
 import morgan from "morgan";
 import apiRouter from "./router";
-import { isUpdated } from "./feature/loader";
 
 const app = express();
 
@@ -16,6 +15,5 @@ app.use(
     })
 );
 app.use("/api", apiRouter);
-isUpdated();
 
 export default app;
