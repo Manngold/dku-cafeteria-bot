@@ -16,7 +16,7 @@ app.use(
     })
 );
 app.use("/api", apiRouter);
-
+caffeine();
 setInterval(caffeine, 300000);
 
 export default app;
