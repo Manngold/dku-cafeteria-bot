@@ -1,5 +1,6 @@
 import { scrapper } from "./scrapper";
 import puppeteer from "puppeteer";
+import routes from "../routes";
 
 export let menu = {
     date: "",
@@ -15,14 +16,14 @@ const dateUpdater = async () => {
     const page = await browser.newPage();
 
     await page.setViewport({ width: 1280, height: 720 });
-    await page.goto("https://portal.dankook.ac.kr/web/portal");
+    await page.goto(routes.destUrl);
 
     const date = await page.$eval(".date", e => e.innerHTML);
     await browser.close();
     return date;
 };
 
-export const caffeine = async () => {
+export const menuUpdater = async () => {
     const newDate = await dateUpdater();
     if (menu.date !== newDate) {
         menu.date = newDate;
