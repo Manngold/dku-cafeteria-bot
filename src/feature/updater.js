@@ -18,6 +18,7 @@ const dateUpdater = async () => {
     await page.goto("https://portal.dankook.ac.kr/web/portal");
 
     const date = await page.$eval(".date", e => e.innerHTML);
+    await browser.close();
     return date;
 };
 
