@@ -16,9 +16,9 @@ const dateUpdater = async () => {
     const page = await browser.newPage();
 
     await page.setViewport({ width: 1280, height: 720 });
-    await page.goto(routes.destUrl);
+    await page.goto(routes.timeDestUrl);
 
-    const date = await page.$eval(".date", e => e.innerHTML);
+    const date = await page.$eval(".hi_dnum", e => e.innerHTML);
     await browser.close();
     return date;
 };
