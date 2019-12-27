@@ -1,5 +1,4 @@
 const routes = {
-    caffeine: "/",
     student: "/student",
     professor: "/professor",
     dormitory: "/dormitory",
