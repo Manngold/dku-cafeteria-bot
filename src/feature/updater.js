@@ -6,25 +6,19 @@ export let menu = {
     date: "",
     student: "",
     professor: "",
-    dormitory: ""
+    dormitory: "",
 };
 
-const dateUpdater = async () => {
-    const browser = await puppeteer.launch({
-        args: ["--no-sandbox", "--disable-setuid-sandbox"]
-    });
-    const page = await browser.newPage();
-
-    await page.setViewport({ width: 1280, height: 720 });
-    await page.goto(routes.timeDestUrl);
-
-    const date = await page.$eval(".hi_dnum", e => e.innerHTML);
-    await browser.close();
+const dateUpdater = () => {
+    const dateTime = new Date();
+    const getMonth = String(dateTime.getMonth() + 1);
+    const getDate = String(dateTime.getDate());
+    const date = `${getMonth}.${getDate}`;
     return date;
 };
 
 export const menuUpdater = async () => {
-    const newDate = await dateUpdater();
+    const newDate = dateUpdater();
     if (menu.date !== newDate) {
         menu.date = newDate;
         await scrapper();
