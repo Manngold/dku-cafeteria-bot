@@ -1,6 +1,4 @@
 import { scrapper } from "./scrapper";
-import puppeteer from "puppeteer";
-import routes from "../routes";
 
 export let menu = {
     date: "",
